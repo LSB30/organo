@@ -55,5 +55,5 @@ export const Div = styled.div`
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  
+  margin-top: 2rem;
 `

@@ -6,7 +6,7 @@ export default function Input({
   requerid,
   value,
   onchange,
-  type = 'text',
+  type = "text",
 }) {
   return (
     <>

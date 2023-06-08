@@ -53,6 +53,7 @@ export default function Form({ onCreateCollaborator, teams, onCreateTeams }) {
               onchange={(e) => setOffice(e.target.value)}
             />
             <Input
+              
               label="Imagem"
               placeholder="Informe o endereço da imagem"
               value={imgUrl}
