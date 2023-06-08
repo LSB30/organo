@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 export const Container = styled.div`
   max-width: 26.2rem;
   width: 100%;
@@ -16,6 +15,7 @@ export const Header = styled.header`
   margin-bottom: 7.8rem;
   border-radius: 10px 10px 0px 0px;
   background-color: #d8d8d8;
+  position: relative;
   > img {
     position: absolute;
     max-width: 12rem;
@@ -24,6 +24,20 @@ export const Header = styled.header`
     right: 27.1%;
     top: 14.85%;
     bottom: 40.59%;
+  }
+
+  > svg {
+    position: absolute;
+    right: 0;
+    margin-right: 1rem;
+    margin-top: 2rem;
+    color: #fff;
+    cursor:pointer;
+    transition: transform 1s linear;
+
+    &:hover {
+      transform: translateY(-10%)
+    }
   }
 `;
 

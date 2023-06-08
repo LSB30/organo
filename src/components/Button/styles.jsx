@@ -19,10 +19,10 @@ export const ButtonArea = styled.button`
   }
 
   &:hover {
-    background-color: #95ffd4;
+    background-color: #414aa0;
   }
 
   &:hover p {
-    color: #6278f7;
+    color: #05aab6;
   }
 `;

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
+  display: flex;
   max-width: 111rem;
   width: 100%;
   border-radius: 2rem;
@@ -23,6 +24,20 @@ export const FormContainer = styled.form`
     font-family: "Prata", serif;
     margin-bottom: 8rem;
   }
+`;
+
+export const DivH2 = styled.div`
+  text-align:center;
+`;
+
+export const SubTitle = styled.h2`
+  display: inline-block;
+  color: #6278F7;
+  font-family: 'Prata';
+  font-size: 4rem;
+  font-weight: 400;
+  border-bottom: 4px solid #6278F7;
+  margin-bottom: 5rem;
 `;
 
 

@@ -1,10 +1,8 @@
 import styled from "styled-components";
-import footerImg from "../../assets/fundo.png";
 
 export const Container = styled.footer`
-  background-image: url(${footerImg});
   width: 100%;
-  height: 21rem;
+  height: 15rem;
   background-color: #6278f7;
   display: flex;
   align-items: center;
@@ -13,8 +11,8 @@ export const Container = styled.footer`
   gap: 1rem;
 
   > p {
-    font-family: 'Montserrat';
-    font-weight: 500;
+    font-family: "Montserrat";
+    font-weight: 600;
     font-size: 2rem;
     color: #fff;
   }
@@ -35,3 +33,5 @@ export const SocialItems = styled.li`
     width: 100%;
   }
 `;
+
+

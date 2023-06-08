@@ -3,56 +3,72 @@ import Form from "./components/Form/Form";
 import Header from "./components/Header/Header";
 import Team from "./components/Team/Team";
 import Footer from "./components/Footer/Footer";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
-  const teams = [
+  const [teams, setTeams] = useState([
     {
+      id: uuidv4(),
       name: "Programação",
-      primaryColor: "#57C278",
-      secondaryColor: "#D9F7E9",
+      color: "#57C278",
     },
 
     {
+      id: uuidv4(),
       name: "Front-End",
-      primaryColor: "#82CFFA",
-      secondaryColor: "#E8F8FF",
+      color: "#82CFFA",
     },
 
     {
+      id: uuidv4(),
       name: "Data Science",
-      primaryColor: "#A6D157",
-      secondaryColor: "#F0F8E2",
+      color: "#A6D157",
     },
 
     {
+      id: uuidv4(),
       name: "Devops",
-      primaryColor: "#E06B69",
-      secondaryColor: "#FDE7E8",
+      color: "#E06B69",
     },
 
     {
+      id: uuidv4(),
       name: "UX e Design",
-      primaryColor: "#DB6EBF",
-      secondaryColor: "#FAE9F5",
+      color: "#DB6EBF",
     },
 
     {
+      id: uuidv4(),
       name: "Mobile",
-      primaryColor: "#FFBA05",
-      secondaryColor: "#FFF5D9",
+      color: "#FFBA05",
     },
 
     {
+      id: uuidv4(),
       name: "Inovação e Gestão",
-      primaryColor: "#FF8A29",
-      secondaryColor: "#FFEEDF",
+      color: "#FF8A29",
     },
-  ];
+  ]);
 
   const [collaborators, setCollaborator] = useState([]);
 
   const createCollaborator = (collaborator) => {
     setCollaborator([...collaborators, collaborator]);
+  };
+
+  const createTeam = (newteam) => {
+    setTeams([
+      ...teams,
+      {
+        ...newteam,
+        id: uuidv4(),
+      },
+    ]);
+  };
+
+  const removeCollaborator = (id) => {
+    const newCollaborator = collaborators.filter((people) => people.id !== id);
+    setCollaborator(newCollaborator);
   };
   return (
     <>
@@ -62,6 +78,7 @@ function App() {
         onCreateCollaborator={(collaborator) =>
           createCollaborator(collaborator)
         }
+        onCreateTeams={createTeam}
       />
       {teams.map((team) => (
         <Team
@@ -69,13 +86,13 @@ function App() {
           teamsCard={collaborators.filter(
             (collaborator) => collaborator.time === team.name
           )}
-          primaryColor={team.primaryColor}
-          secondaryColor={team.secondaryColor}
-          key={team.name}
+          color={team.color}
+          key={team.id}
+          onRemoveCollaborator={removeCollaborator}
         />
       ))}
 
-      <Footer></Footer>
+      <Footer />
     </>
   );
 }

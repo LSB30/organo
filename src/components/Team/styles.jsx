@@ -1,9 +1,12 @@
 import styled from "styled-components";
+import banner from "../../assets/fundo.png"
+
 
 export const Container = styled.div`
   padding: 3.2rem;
   position: relative;
   text-align: center;
+  background-image: url(${banner});
   
   > h3 {
     display: inline-block;
@@ -23,3 +26,10 @@ export const CardContainer = styled.section`
   flex-wrap: wrap;
   margin-top: 3.2rem;
 `;
+
+export const InputColor = styled.input`
+  position: absolute;
+  top: 2rem;
+  right: 5rem;
+`;
+
