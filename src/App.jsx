@@ -51,7 +51,7 @@ function App() {
   ]);
 
   const [collaborators, setCollaborator] = useState([]);
-
+  console.log(collaborators);
   const createCollaborator = (collaborator) => {
     setCollaborator([...collaborators, collaborator]);
   };
@@ -61,7 +61,6 @@ function App() {
       ...teams,
       {
         ...newteam,
-        id: uuidv4(),
       },
     ]);
   };
@@ -69,6 +68,14 @@ function App() {
   const removeCollaborator = (id) => {
     const newCollaborator = collaborators.filter((people) => people.id !== id);
     setCollaborator(newCollaborator);
+  };
+
+  const handleFavorite = (id) => {
+    setCollaborator(collaborators.map(collaborator => {
+      if (collaborator.id === id)
+        collaborator.favorite = !collaborator.favorite;
+        return collaborator
+    }))
   };
   return (
     <>
@@ -89,6 +96,7 @@ function App() {
           color={team.color}
           key={team.id}
           onRemoveCollaborator={removeCollaborator}
+          onFavorite={handleFavorite}
         />
       ))}
 

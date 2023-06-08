@@ -1,4 +1,4 @@
-import { Container, FormContainer, SubTitle, DivH2 } from "./styles";
+import { Container, FormContainer, SubTitle, DivH2, Div } from "./styles";
 import Input from "../Input/Input";
 import ListTimes from "../ListTimes/ListTimes";
 import Button from "../Button/Button";
@@ -11,8 +11,8 @@ export default function Form({ onCreateCollaborator, teams, onCreateTeams }) {
   const [imgUrl, setImgUrla] = useState("");
   const [time, setTime] = useState("");
 
-  const [createTime, setcreateTime] = useState("")
-  const [color,setColor] = useState("")
+  const [createTime, setcreateTime] = useState("");
+  const [color, setColor] = useState("#000");
 
   const submitForm = (e) => {
     e.preventDefault();
@@ -22,6 +22,7 @@ export default function Form({ onCreateCollaborator, teams, onCreateTeams }) {
       imgUrl,
       time,
       id: uuidv4(),
+      favorite: false,
     });
 
     setName("");
@@ -32,72 +33,81 @@ export default function Form({ onCreateCollaborator, teams, onCreateTeams }) {
 
   return (
     <>
-      <Container>
-        <FormContainer onSubmit={submitForm}>
-          <h2>Preencha os dados para criar o card do colaborador.</h2>
+      <Div>
+        <Container>
+          <FormContainer onSubmit={submitForm}>
+            <h2>Preencha os dados para criar o card do colaborador.</h2>
 
-          <Input
-            requerid
-            label="Nome"
-            placeholder="Digite seu nome"
-            value={name}
-            onchange={(e) => setName(e.target.value)}
-          />
-          <Input
-            requerid
-            label="Cargo"
-            placeholder="Digite seu cargo"
-            value={office}
-            onchange={(e) => setOffice(e.target.value)}
-          />
-          <Input
-            label="Imagem"
-            placeholder="Informe o endereço da imagem"
-            value={imgUrl}
-            onchange={(e) => setImgUrla(e.target.value)}
-          />
-          <ListTimes
-            requerid
-            label="Time"
-            options={teams}
-            value={time}
-            onchange={(e) => setTime(e.target.value)}
-          />
-          <Button>
-            <p>Criar Card</p>
-          </Button>
-        </FormContainer>
+            <Input
+              requerid
+              label="Nome"
+              placeholder="Digite seu nome"
+              value={name}
+              onchange={(e) => setName(e.target.value)}
+            />
+            <Input
+              requerid
+              label="Cargo"
+              placeholder="Digite seu cargo"
+              value={office}
+              onchange={(e) => setOffice(e.target.value)}
+            />
+            <Input
+              label="Imagem"
+              placeholder="Informe o endereço da imagem"
+              value={imgUrl}
+              onchange={(e) => setImgUrla(e.target.value)}
+            />
+            <ListTimes
+              requerid
+              label="Time"
+              options={teams}
+              value={time}
+              onchange={(e) => setTime(e.target.value)}
+            />
+            <Button>
+              <p>Criar Card</p>
+            </Button>
+          </FormContainer>
+        </Container>
 
-        <FormContainer onSubmit={(e) => {
-          e.preventDefault()
-          onCreateTeams({
-            name: createTime,
-            color
-          })
-          }
-          }>
-          <h2>Preencha os dados para criar um novo time.</h2>
+        <Container>
+          <FormContainer
+            onSubmit={(e) => {
+              e.preventDefault();
+              onCreateTeams({
+                id: uuidv4(),
+                name: createTime,
+                color,
+              });
+              setcreateTime("");
+              setColor("#000");
+            }}
+          >
+            <h2>Preencha os dados para criar um novo time.</h2>
 
-          <Input
-            requerid
-            label="Criar Time"
-            placeholder="Digite o nome do time"
-            value={createTime}
-            onchange={(e) => setcreateTime(e.target.value)}
-          />
-          <Input
-            requerid
-            label="Cor"
-            placeholder="Digite uma cor: #fff "
-            value={color}
-            onchange={(e) => setColor(e.target.value)}
-          />
-         
-          <Button>
-            <p>Criar Time</p>
-          </Button>
-        </FormContainer>
-      </Container>
+            <Input
+              requerid
+              label="Criar Time"
+              placeholder="Digite o nome do time"
+              value={createTime}
+              onchange={(e) => setcreateTime(e.target.value)}
+            />
+            <Input
+              requerid
+              type="color"
+              label="Cor"
+              placeholder="Digite uma cor: #fff "
+              value={color}
+              onchange={(e) => setColor(e.target.value)}
+            />
+
+            <Button>
+              <p>Criar Time</p>
+            </Button>
+          </FormContainer>
+        </Container>
+      </Div>
       <DivH2>
         <SubTitle>Minha Organização</SubTitle>
       </DivH2>

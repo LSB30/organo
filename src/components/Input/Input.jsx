@@ -6,11 +6,13 @@ export default function Input({
   requerid,
   value,
   onchange,
+  type = 'text',
 }) {
   return (
     <>
       <Label>{label}</Label>
       <InputArea
+        type={type}
         placeholder={placeholder}
         required={requerid}
         value={value}

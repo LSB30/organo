@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const Container = styled.section`
   display: flex;
-  max-width: 111rem;
+  flex: 1;
   width: 100%;
   border-radius: 2rem;
   box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.08);
-  margin: 3.3rem auto;
+  margin: 5.3rem 3rem;
   background: #f7f7f7;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 `;
@@ -40,4 +40,9 @@ export const SubTitle = styled.h2`
   margin-bottom: 5rem;
 `;
 
-
+export const Div = styled.div`
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  
+`

@@ -16,6 +16,7 @@ export const Header = styled.header`
   border-radius: 10px 10px 0px 0px;
   background-color: #d8d8d8;
   position: relative;
+
   > img {
     position: absolute;
     max-width: 12rem;
@@ -41,7 +42,11 @@ export const Header = styled.header`
   }
 `;
 
-export const Details = styled.div``;
+export const Details = styled.div`
+  > svg {
+    cursor: pointer;
+  }
+`;
 
 export const NameCollaborator = styled.h4`
   color: #6278f7;
@@ -56,4 +61,5 @@ export const CargoCollaborator = styled.h5`
   font-family: "Montserrat", sans-serif;
   font-size: 1.6rem;
   font-weight: 400;
+  margin-bottom: 1.1rem;
 `;

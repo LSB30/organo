@@ -6,8 +6,8 @@ import {
   CargoCollaborator,
 } from "./styles";
 
-import {CiBookmarkRemove} from "react-icons/ci"
-
+import { CiBookmarkRemove } from "react-icons/ci";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 export default function Card({
   color,
@@ -15,18 +15,26 @@ export default function Card({
   office,
   imgUrl,
   onRemoveCollaborator,
-  id
+  favorite,
+  id,
+  onFavorite,
 }) {
   return (
     <Container>
       <Header style={{ backgroundColor: color }}>
         <img src={imgUrl} alt={name} />
-        <CiBookmarkRemove size={35} onClick={() => onRemoveCollaborator(id)}/>
+        <CiBookmarkRemove size={35} onClick={() => onRemoveCollaborator(id)} />
       </Header>
       <Details>
         <NameCollaborator>{name}</NameCollaborator>
 
         <CargoCollaborator>{office}</CargoCollaborator>
+
+        {favorite ? (
+          <AiFillHeart color="red" size={20} onClick={() => onFavorite(id)} />
+        ) : (
+          <AiOutlineHeart size={20} onClick={() => onFavorite(id)} />
+        )}
       </Details>
     </Container>
   );

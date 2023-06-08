@@ -8,7 +8,7 @@ export default function Team({
   color,
   teamsCard,
   onRemoveCollaborator,
-  id
+  onFavorite
 }) {
   const [newColor, setnewColor] = useState(color);
 
@@ -27,13 +27,15 @@ export default function Team({
           {teamsCard.map((collaborator) => {
             return (
               <Card
-                key={id}
+                key={collaborator.id}
                 name={collaborator.name}
                 office={collaborator.office}
                 imgUrl={collaborator.imgUrl}
                 color={newColor}
                 onRemoveCollaborator={onRemoveCollaborator}
                 id={collaborator.id}
+                favorite={collaborator.favorite}
+                onFavorite={onFavorite}
               />
             );
           })}
