@@ -6,9 +6,16 @@ export const Container = styled.section`
   width: 100%;
   border-radius: 2rem;
   box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.08);
-  margin: 5.3rem 3rem;
+  margin: 3.3rem 2rem;
   background: #f7f7f7;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+  @media (max-width:800px) {
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    
+  }
 `;
 
 export const FormContainer = styled.form`
@@ -23,6 +30,10 @@ export const FormContainer = styled.form`
     font-weight: 400;
     font-family: "Prata", serif;
     margin-bottom: 8rem;
+  }
+
+  @media (max-width: 800px) {
+    align-items: center;
   }
 `;
 

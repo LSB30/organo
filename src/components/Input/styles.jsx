@@ -27,4 +27,8 @@ export const InputArea = styled.input`
     color: #a4a4a4;
     font-family: "Montserrat", sans-serif;
   }
+
+  @media (max-width: 800px) {
+    width: 30rem;
+  }
 `;
